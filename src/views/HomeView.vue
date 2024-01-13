@@ -16,82 +16,162 @@
       <div class="card-container">
         <div class="card">
             <img src="../assets/product/1.jpg" width="250" height="250" alt="">
-            <span class="judul" style="font-size: 16px;font-weight: 700;">Baju gamis mewah</span>
+            <div class="judul-heart">
+              <span class="judul" style="font-size: 12px;font-weight: 700;">Baju gamis mewah</span>
+              <font-awesome-icon icon="fa-solid fa-heart" /> 
+            </div>
+            
             <div class="harga-btnCon">
-              <span class="harga" style="font-size: 18px;"><sup>Rp</sup>80.000</span>
-              <button class="button">Beli</button>
+              <span class="harga" style="font-size: 15px;"><sup>Rp</sup>80.000</span>
+              <div class="btn-group">
+                <button class="cart"><font-awesome-icon icon="fa-solid fa-cart-shopping" /></button>
+                <button class="button">Beli</button>
+              </div>
+              
             </div>
         </div>
         <div class="card">
             <img src="../assets/product/2.webp" width="250" height="250" alt="">
-            <span class="judul" style="font-size: 16px;font-weight: 700;">Baju gamis mewah</span>
+            <div class="judul-heart">
+              <span class="judul" style="font-size: 12px;font-weight: 700;">Baju gamis mewah</span>
+              <font-awesome-icon icon="fa-solid fa-heart" /> 
+            </div>
+            
             <div class="harga-btnCon">
-              <span class="harga" style="font-size: 18px;"><sup>Rp</sup>80.000</span>
-              <button class="button">Beli</button>
+              <span class="harga" style="font-size: 15px;"><sup>Rp</sup>80.000</span>
+              <div class="btn-group">
+                <button class="cart"><font-awesome-icon icon="fa-solid fa-cart-shopping" /></button>
+                <button class="button">Beli</button>
+              </div>
+              
             </div>
         </div>
         <div class="card">
             <img src="../assets/product/3.jpg" width="250" height="250" alt="">
-            <span class="judul" style="font-size: 16px;font-weight: 700;">Baju gamis mewah</span>
+            <div class="judul-heart">
+              <span class="judul" style="font-size: 12px;font-weight: 700;">Baju gamis mewah</span>
+              <font-awesome-icon icon="fa-solid fa-heart" /> 
+            </div>
+            
             <div class="harga-btnCon">
-              <span class="harga" style="font-size: 18px;"><sup>Rp</sup>80.000</span>
-              <button class="button">Beli</button>
+              <span class="harga" style="font-size: 15px;"><sup>Rp</sup>80.000</span>
+              <div class="btn-group">
+                <button class="cart"><font-awesome-icon icon="fa-solid fa-cart-shopping" /></button>
+                <button class="button">Beli</button>
+              </div>
+              
             </div>
         </div>
         <div class="card">
             <img src="../assets/product/4.webp" width="250" height="250" alt="">
-            <span class="judul" style="font-size: 16px;font-weight: 700;">Baju gamis mewah</span>
+            <div class="judul-heart">
+              <span class="judul" style="font-size: 12px;font-weight: 700;">Baju gamis mewah</span>
+              <font-awesome-icon icon="fa-solid fa-heart" /> 
+            </div>
+            
             <div class="harga-btnCon">
-              <span class="harga" style="font-size: 18px;"><sup>Rp</sup>80.000</span>
-              <button class="button">Beli</button>
+              <span class="harga" style="font-size: 15px;"><sup>Rp</sup>80.000</span>
+              <div class="btn-group">
+                <button class="cart"><font-awesome-icon icon="fa-solid fa-cart-shopping" /></button>
+                <button class="button">Beli</button>
+              </div>
+              
             </div>
         </div>
         <div class="card">
             <img src="../assets/product/5.jpeg" width="250" height="250" alt="">
-            <span class="judul" style="font-size: 16px;font-weight: 700;">Baju gamis mewah</span>
+            <div class="judul-heart">
+              <span class="judul" style="font-size: 12px;font-weight: 700;">Baju gamis mewah</span>
+              <font-awesome-icon icon="fa-solid fa-heart" /> 
+            </div>
+            
             <div class="harga-btnCon">
-              <span class="harga" style="font-size: 18px;"><sup>Rp</sup>80.000</span>
-              <button class="button">Beli</button>
+              <span class="harga" style="font-size: 15px;"><sup>Rp</sup>80.000</span>
+              <div class="btn-group">
+                <button class="cart"><font-awesome-icon icon="fa-solid fa-cart-shopping" /></button>
+                <button class="button">Beli</button>
+              </div>
+              
             </div>
         </div>
         <div class="card">
             <img src="../assets/product/6.png" width="250" height="250" alt="">
-            <span class="judul" style="font-size: 16px;font-weight: 700;">Baju gamis mewah</span>
+            <div class="judul-heart">
+              <span class="judul" style="font-size: 12px;font-weight: 700;">Baju gamis mewah</span>
+              <font-awesome-icon icon="fa-solid fa-heart" /> 
+            </div>
+            
             <div class="harga-btnCon">
-              <span class="harga" style="font-size: 18px;"><sup>Rp</sup>80.000</span>
-              <button class="button">Beli</button>
+              <span class="harga" style="font-size: 15px;"><sup>Rp</sup>80.000</span>
+              <div class="btn-group">
+                <button class="cart"><font-awesome-icon icon="fa-solid fa-cart-shopping" /></button>
+                <button class="button">Beli</button>
+              </div>
+              
             </div>
         </div>
         <div class="card">
             <img src="../assets/product/7.jpg" width="250" height="250" alt="">
-            <span class="judul" style="font-size: 16px;font-weight: 700;">Baju gamis mewah</span>
+            <div class="judul-heart">
+              <span class="judul" style="font-size: 12px;font-weight: 700;">Baju gamis mewah</span>
+              <font-awesome-icon icon="fa-solid fa-heart" /> 
+            </div>
+            
             <div class="harga-btnCon">
-              <span class="harga" style="font-size: 18px;"><sup>Rp</sup>80.000</span>
-              <button class="button">Beli</button>
+              <span class="harga" style="font-size: 15px;"><sup>Rp</sup>80.000</span>
+              <div class="btn-group">
+                <button class="cart"><font-awesome-icon icon="fa-solid fa-cart-shopping" /></button>
+                <button class="button">Beli</button>
+              </div>
+              
             </div>
         </div>
         <div class="card">
             <img src="../assets/product/8.jpg" width="250" height="250" alt="">
-            <span class="judul" style="font-size: 16px;font-weight: 700;">Baju gamis mewah</span>
+            <div class="judul-heart">
+              <span class="judul" style="font-size: 12px;font-weight: 700;">Baju gamis mewah</span>
+              <font-awesome-icon icon="fa-solid fa-heart" /> 
+            </div>
+            
             <div class="harga-btnCon">
-              <span class="harga" style="font-size: 18px;"><sup>Rp</sup>80.000</span>
-              <button class="button">Beli</button>
+              <span class="harga" style="font-size: 15px;"><sup>Rp</sup>80.000</span>
+              <div class="btn-group">
+                <button class="cart"><font-awesome-icon icon="fa-solid fa-cart-shopping" /></button>
+                <button class="button">Beli</button>
+              </div>
+              
             </div>
         </div>
         <div class="card">
             <img src="../assets/product/9.webp" width="250" height="250" alt="">
-            <span class="judul" style="font-size: 16px;font-weight: 700;">Baju gamis mewah</span>
+            <div class="judul-heart">
+              <span class="judul" style="font-size: 12px;font-weight: 700;">Baju gamis mewah</span>
+              <font-awesome-icon icon="fa-solid fa-heart" /> 
+            </div>
+            
             <div class="harga-btnCon">
-              <span class="harga" style="font-size: 18px;"><sup>Rp</sup>80.000</span>
-              <button class="button">Beli</button>
+              <span class="harga" style="font-size: 15px;"><sup>Rp</sup>80.000</span>
+              <div class="btn-group">
+                <button class="cart"><font-awesome-icon icon="fa-solid fa-cart-shopping" /></button>
+                <button class="button">Beli</button>
+              </div>
+              
             </div>
         </div>
         <div class="card">
             <img src="../assets/product/7.jpg" width="250" height="250" alt="">
-            <span class="judul" style="font-size: 16px;font-weight: 700;">Baju gamis mewah</span>
+            <div class="judul-heart">
+              <span class="judul" style="font-size: 12px;font-weight: 700;">Baju gamis mewah</span>
+              <font-awesome-icon icon="fa-solid fa-heart" /> 
+            </div>
+            
             <div class="harga-btnCon">
-              <span class="harga" style="font-size: 18px;"><sup>Rp</sup>80.000</span>
-              <button class="button">Beli</button>
+              <span class="harga" style="font-size: 15px;"><sup>Rp</sup>80.000</span>
+              <div class="btn-group">
+                <button class="cart"><font-awesome-icon icon="fa-solid fa-cart-shopping" /></button>
+                <button class="button">Beli</button>
+              </div>
+              
             </div>
             
         </div>
@@ -127,16 +207,18 @@
     justify-content: center;
     border-radius: 10px;
     overflow: hidden;
-    gap: 10px;
     box-shadow: 0 0 10px rgb(230, 230, 230);
   }
 
   .card .judul{
     color: rgb(245, 136, 20);
-    margin-left: 10px;
   }
 
-  .card .harga{
+ 
+
+  .card .btn-group{
+    display: flex;
+    gap: 7px;
   }
   .card .button{
     background-color: rgb(245, 136, 20);
@@ -151,7 +233,20 @@
     cursor: pointer;
   }
 
-  .harga-btnCon{
+  .card .cart{
+    background-color: rgb(245, 136, 20);
+    padding: 5px 10px;
+    outline: 0;
+    border: none;
+    box-shadow: 0 0 4px rgb(166, 166, 166);
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+
+  .harga-btnCon,.judul-heart{
     display: flex;
     justify-content: space-between;
     align-items: center;

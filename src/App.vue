@@ -23,14 +23,15 @@ const closeMenu = () => {
 <template>
   <header>
     <div class="wrapper">
-      <img @click="goToHome()" src="./assets/logo2.png" height="60px" alt="">
+      <img @click="goToHome()" src="./assets/logo2.png" height="50px" alt="">
       <span @click="openMenu()" class="menu" id="menu">Menu</span>
       <span @click="closeMenu()" class="menu-close" id="menu-close">X</span>
       <nav id="nav">
-        <RouterLink to="/about">Pria</RouterLink>
-        <RouterLink to="/about">Wanita</RouterLink>
-        <RouterLink to="/about">Aksesoris</RouterLink>
-        <RouterLink to="/about">Login</RouterLink>
+        <RouterLink to="/pria">Pria</RouterLink>
+        <RouterLink to="/wanita">Wanita</RouterLink>
+        <RouterLink to="/akses">Aksesoris</RouterLink>
+        <RouterLink to="/login">Login</RouterLink>
+        <RouterLink to="/register">Register</RouterLink>
         <RouterLink v-if="jikaLogin" to="/about">Keranjang</RouterLink>
       </nav>
     </div>
@@ -67,7 +68,7 @@ header .wrapper nav{
 
 header .wrapper nav a{
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 500;
   color: rgb(245, 136, 20);
   transition: 0.3s;
 }
@@ -81,11 +82,12 @@ nav a.router-link-exact-active {
   color: white !important;
   padding: 2px 10px;
   border-radius: 5px;
+  font-weight: 700;
 }
 
-nav a.router-link-exact-active:hover {
+/* nav a.router-link-exact-active:hover {
 
-}
+} */
 
 .menu{
   display: none;
@@ -116,6 +118,7 @@ nav a.router-link-exact-active:hover {
     height: 50vw;
     display: none;
     transition: 0.5s;
+    z-index: 4;
   }
 }
 
