@@ -3,11 +3,11 @@
 
 <template>
   <main>
-    <img src="../assets/banner3.png" alt="" style="width: calc(100% - 20px);margin:0 10px;border-radius: 10px;">
+    <img id="logo" src="../assets/banner3.png" alt="" >
 
     <div class="menu-home" style="display: flex;justify-content: center;">
-      <img src="../assets/1.png" style="border-radius: 10px;" width="400" alt="">
-      <img src="../assets/2.png" style="border-radius: 10px;" width="400" alt="">\
+      <img src="../assets/1.png" style="border-radius: 10px;" alt="">
+      <img src="../assets/2.png" style="border-radius: 10px;" alt="">
     </div>
     <div style="width: 100%;">
       <h1 style="text-align: center;font-weight: 400;margin-top: 70px;">Featured Products</h1>
@@ -180,14 +180,21 @@
 </template>
 
 <style scoped>
+ #logo{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(80% + 40px);
+  border-radius: 10px;
+ }
 
 .menu-home{
-    gap: 80px;
+    gap: 40px;
     margin: 30px 0;
   }
 
   .menu-home img{
-    
+    width: 40%;
     box-shadow: 0 0 4px rgb(166, 166, 166);
   }
 
@@ -249,12 +256,16 @@
     align-items: center;
     margin:10px;
   }
-@media (max-width:500px) {
+@media (max-width:700px) {
   .menu-home{
     flex-direction: column;
     gap: 20px;
     align-items: center;
     margin-top: 10px;
+  }
+
+  .menu-home img{
+    width: 96% !important;
   }
 
   .card{

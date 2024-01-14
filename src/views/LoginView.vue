@@ -9,26 +9,81 @@
                 <p>Please enter your information</p>
                 <div class="input-grp">
                     <div class="label-con">
-                        <label for="">EMAIL ID</label>
-                        <input type="text" v-model="email">
+                        <label for="email">EMAIL ID</label>
+                        <input id="email" type="text" v-model="email">
                     </div>
                     <div class="label-con">
-                        <label for="">PASSWORD</label>
-                        <input type="password" v-model="password">
+                        <label for="password">PASSWORD</label>
+                        <input id="password" type="password" v-model="password">
                     </div>
                 </div>
+                <p v-if="errMsg">{{ errMsg }}</p>
                 <div class="reme-grp">
-                    <p><a href="#">Register</a></p>
+                    <p @click="goToRegister">Register</p>
                 </div>
                 <button @click="login">LOGIN</button>
-                
+
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    GoogleAuthProvider,
+    signInWithPopup,
+} from "firebase/auth";
+import { useRouter } from "vue-router";
+import { RouterLink, RouterView } from "vue-router";
 
+
+const email = ref("");
+const password = ref("");
+const errMsg = ref("");
+const router = useRouter();
+
+const goToRegister = () => {
+    router.push("/register")
+}
+
+const login = () => {
+    signInWithEmailAndPassword(getAuth(), email.value, password.value)
+        .then((data) => {
+            router.push("/");
+        })
+        .catch((error) => {
+            console.log(error.code);
+            switch (error.code) {
+                case "auth/invalid-email":
+                    errMsg.value = "subhanAllah, Invalid Email";
+                    break;
+                case "auth/user-not-found":
+                    errMsg.value = "SubhanAllah, No Account With That Email Was Found";
+                    break;
+                case "auth/wrong-password":
+                    errMsg.value = "SubhanAllah, Wrong Password Bro";
+                    break;
+                default:
+                    errMsg.value = "Haiiiiih, Email or Password was Incorrect";
+                    break;
+            }
+        });
+};
+
+// const signInWithGoogle = () => {
+//   const provider = new GoogleAuthProvider();
+//   signInWithPopup(getAuth(), provider)
+//     .then((result) => {
+//       console.log(result.user);
+//       router.push("/data");
+//     })
+//     .catch((error) => {
+//       //handle error
+//     });
+// };
 </script>
 
 <style scoped>
@@ -82,6 +137,7 @@
 
 .login-form p {
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .login-form button {
@@ -93,20 +149,21 @@
     color: white;
     font-weight: 700;
     letter-spacing: 1px;
+    cursor: pointer;
 }
 
-.reme-grp{
+.reme-grp {
     display: flex;
     width: 260px;
     font-size: 13px;
     justify-content: flex-end;
 }
 
-.reme-grp p{
+.reme-grp p {
     height: 20px;
 }
 
-.reme-grp a{
+.reme-grp a {
     color: rgb(96, 96, 96);
 }
 
@@ -139,12 +196,14 @@
     font-size: 11px;
 }
 
-@media (max-width:500px){
-    .container{
+@media (max-width:700px) {
+    .container {
         flex-direction: column;
         padding: 0 30px;
         justify-content: center;
         width: 95%;
+        height: 100vh;
+        margin-bottom: 10px;
     }
 
     .login-container {
@@ -153,7 +212,7 @@
         align-items: center;
     }
 
-    .login-container img{
+    .login-container img {
         width: 80px;
     }
 }

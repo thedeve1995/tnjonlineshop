@@ -1,11 +1,17 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import { useRouter } from "vue-router"
-
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { onMounted, ref } from "vue";
+let linkImage
+let namaUser
 const router = useRouter()
 
 const goToHome = () => {
   router.push("/")
+}
+const goToSetting = () => {
+  router.push("/setting")
 }
 
 const openMenu = () => {
@@ -18,6 +24,44 @@ const closeMenu = () => {
   document.getElementById("menu-close").style.display = "none";
   document.getElementById("menu").style.display = "block";
 }
+
+const isLoggedIn = ref(false);
+const isLoggedOut = ref(false);
+let user = ref(null);
+onMounted(() => {
+  auth = getAuth();
+  onAuthStateChanged(auth, (firebaseUser) => {
+    if (firebaseUser) {
+      user.value = firebaseUser;
+    } else {
+      user.value = null;
+    }
+  });
+});
+
+let auth;
+onMounted(() => {
+  auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true;
+      const displayName = user.displayName;
+      const uid = user.uid;
+      const photoURL = user.photoURL;
+      linkImage = photoURL;
+      namaUser = displayName;
+    } else {
+      isLoggedIn.value = false;
+      isLoggedOut.value = true;
+    }
+  });
+});
+
+const handleSignOut = () => {
+  signOut(auth).then(() => {
+    router.push("/");
+  });
+};
 </script>
 
 <template>
@@ -30,9 +74,31 @@ const closeMenu = () => {
         <RouterLink to="/pria">Pria</RouterLink>
         <RouterLink to="/wanita">Wanita</RouterLink>
         <RouterLink to="/akses">Aksesoris</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
-        <RouterLink to="/register">Register</RouterLink>
-        <RouterLink v-if="jikaLogin" to="/about">Keranjang</RouterLink>
+        <RouterLink to="/login" v-if="isLoggedOut">Login</RouterLink>
+
+        <div style="display: flex;gap: 10px;align-items: center;">
+          <RouterLink style="background-color: rgb(245, 136, 20);padding: 5px;color: white;border-radius: 5px;"
+            v-if="isLoggedIn" to="/">
+            <font-awesome-icon icon="fa-solid fa-cart-shopping" />
+          </RouterLink>
+
+          <button
+            style="background-color: rgb(245, 136, 20);padding: 5px;color: white;border-radius: 5px;"
+            v-if="isLoggedIn" @click="goToSetting">
+            <font-awesome-icon icon="fa-solid fa-gear" />
+          </button>
+
+          
+
+          <button
+            style="background-color: rgb(245, 136, 20);padding: 5px;color: white;border-radius: 5px"
+            v-if="isLoggedIn" @click="handleSignOut">
+            <font-awesome-icon icon="fa-solid fa-right-from-bracket" />
+          </button>
+
+          <img :src="linkImage"  width="30" height="30" style="border-radius: 50%;" alt="" :title="namaUser">
+        </div>
+
       </nav>
     </div>
   </header>
@@ -43,42 +109,52 @@ const closeMenu = () => {
 </template>
 
 <style scoped>
-header{
+header {
   width: 100%;
   height: 9vh;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: white;
 }
-header .wrapper{
+
+header .wrapper {
   display: flex;
   padding: 5px 30px;
   justify-content: space-between;
   align-items: center;
 }
 
-header .wrapper img{
+header .wrapper img {
   cursor: pointer;
 }
 
-header .wrapper nav{
+header .wrapper nav {
   display: flex;
   gap: 10px;
   justify-content: center;
   align-items: center;
 }
 
-header .wrapper nav a{
+header .wrapper nav a,
+header .wrapper nav button {
   text-decoration: none;
   font-weight: 500;
   color: rgb(245, 136, 20);
   transition: 0.3s;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
 }
 
-footer{
+footer {
   background-color: rgb(245, 136, 20);
   min-height: 50vh;
 }
+
 nav a.router-link-exact-active {
-  background-color:rgb(245, 136, 20);
+  background-color: rgb(245, 136, 20) !important;
   color: white !important;
   padding: 2px 10px;
   border-radius: 5px;
@@ -89,26 +165,27 @@ nav a.router-link-exact-active {
 
 } */
 
-.menu{
+.menu {
   display: none;
 }
 
-.menu-close{
+.menu-close {
   display: none;
 }
 
-@media (max-width:500px) {
-  .menu{
+@media (max-width:700px) {
+  .menu {
     display: block;
     font-weight: 700;
     color: rgb(245, 136, 20);
     transition: 0.5s;
   }
 
-  header .wrapper{
+  header .wrapper {
     position: relative;
   }
-  header .wrapper nav{
+
+  header .wrapper nav {
     position: absolute;
     background-color: rgba(255, 255, 255, 0.8);
     flex-direction: column;
@@ -121,5 +198,4 @@ nav a.router-link-exact-active {
     z-index: 4;
   }
 }
-
 </style>
