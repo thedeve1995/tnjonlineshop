@@ -3,9 +3,36 @@ import { RouterLink, RouterView } from 'vue-router'
 import { useRouter } from "vue-router"
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { onMounted, ref } from "vue";
+import { doc, getDoc } from 'firebase/firestore'
+import { db } from '@/firebase'
+
 let linkImage
 let namaUser
+let emailUser
 const router = useRouter()
+const userCart = ref([])
+
+const loadCart = async () => {
+  if (emailUser) {
+    const userRef = doc(db, 'user', emailUser);
+
+    try {
+      const docSnap = await getDoc(userRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        if (data.cart) {
+          userCart.value = data.cart;
+        }
+
+      } else {
+        console.log('No such document!');
+      }
+    } catch (e) {
+      console.error('Error getting document:', e);
+    }
+  }
+};
 
 const goToHome = () => {
   router.push("/")
@@ -42,14 +69,18 @@ onMounted(() => {
 let auth;
 onMounted(() => {
   auth = getAuth();
+  
   onAuthStateChanged(auth, (user) => {
     if (user) {
       isLoggedIn.value = true;
       const displayName = user.displayName;
       const uid = user.uid;
       const photoURL = user.photoURL;
+      const email = user.email
       linkImage = photoURL;
       namaUser = displayName;
+      emailUser = email;
+      loadCart();
     } else {
       isLoggedIn.value = false;
       isLoggedOut.value = true;
@@ -78,8 +109,9 @@ const handleSignOut = () => {
 
         <div style="display: flex;gap: 10px;align-items: center;">
           <RouterLink style="background-color: rgb(245, 136, 20);padding: 5px;color: white;border-radius: 5px;"
-            v-if="isLoggedIn" to="/">
+            v-if="isLoggedIn" to="/cart">
             <font-awesome-icon icon="fa-solid fa-cart-shopping" />
+            <span>{{ userCart.length }}</span>
           </RouterLink>
 
           <button
@@ -96,7 +128,7 @@ const handleSignOut = () => {
             <font-awesome-icon icon="fa-solid fa-right-from-bracket" />
           </button>
 
-          <img :src="linkImage"  width="30" height="30" style="border-radius: 50%;" alt="" :title="namaUser">
+          <img v-if="isLoggedIn" :src="linkImage"  width="30" height="30" style="border-radius: 50%;" alt="" :title="namaUser">
         </div>
 
       </nav>
