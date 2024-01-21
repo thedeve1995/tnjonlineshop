@@ -99,12 +99,9 @@ const handleSignOut = () => {
   <header>
     <div class="wrapper">
       <img @click="goToHome()" src="./assets/logo2.png" height="50px" alt="">
-      <span @click="openMenu()" class="menu" id="menu">Menu</span>
-      <span @click="closeMenu()" class="menu-close" id="menu-close">X</span>
+  
       <nav id="nav">
-        <RouterLink to="/pria">Pria</RouterLink>
-        <RouterLink to="/wanita">Wanita</RouterLink>
-        <RouterLink to="/akses">Aksesoris</RouterLink>
+        
         <RouterLink to="/login" v-if="isLoggedOut">Login</RouterLink>
 
         <div style="display: flex;gap: 10px;align-items: center;">
@@ -137,6 +134,9 @@ const handleSignOut = () => {
 
   <RouterView class="view" />
   <footer>
+    <div class="footer-content">
+        <p>&copy; 2024 Fradel & Spies Shopping. All rights reserved.</p>
+      </div>
   </footer>
 </template>
 
@@ -182,7 +182,13 @@ header .wrapper nav button {
 
 footer {
   background-color: rgb(245, 136, 20);
-  min-height: 50vh;
+  min-height: 50px;
+  color: white;
+  text-align: center;
+}
+
+.footer-content {
+  padding: 10px;
 }
 
 nav a.router-link-exact-active {
@@ -213,21 +219,8 @@ nav a.router-link-exact-active {
     transition: 0.5s;
   }
 
-  header .wrapper {
-    position: relative;
-  }
 
-  header .wrapper nav {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.8);
-    flex-direction: column;
-    right: 0;
-    top: 9vh;
-    width: 100vw;
-    height: 50vw;
-    display: none;
-    transition: 0.5s;
-    z-index: 4;
-  }
+
+
 }
 </style>

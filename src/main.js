@@ -31,9 +31,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faDoorClosed, faUserSecret, faArrowRight, faHeart, faCartShopping, faRightFromBracket, faGear } from '@fortawesome/free-solid-svg-icons'
+import { faDoorClosed, faUserSecret, faArrowRight, faHeart, faCartShopping, faRightFromBracket, faGear, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
-library.add(faUserSecret,faDoorClosed, faArrowRight, faHeart,faCartShopping,faRightFromBracket,faGear)
+library.add(faUserSecret,faDoorClosed, faArrowRight, faHeart,faCartShopping,faRightFromBracket,faGear,faXmark)
 
 app.component('font-awesome-icon', FontAwesomeIcon).mount('#app')
